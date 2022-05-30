@@ -26,3 +26,8 @@ Alpha.
 
 
  
+
+## Licencia
+[CC BY SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)
+
+El proyecto está en desarrollo, consultar cómo citar. Contacto: Natalia Morandeira (nmorandeira@unsam.edu.ar, [@nmorandeira](https://github.com/nmorandeira))
