@@ -1,0 +1,205 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Polarimetric-Decomposition">
+    <operator>Polarimetric-Decomposition</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <decomposition>Freeman-Durden Decomposition</decomposition>
+      <windowSize>5</windowSize>
+      <outputHAAlpha>true</outputHAAlpha>
+      <outputBetaDeltaGammaLambda>false</outputBetaDeltaGammaLambda>
+      <outputAlpha123>false</outputAlpha123>
+      <outputLambda123>false</outputLambda123>
+      <outputTouziParamSet0>true</outputTouziParamSet0>
+      <outputTouziParamSet1>false</outputTouziParamSet1>
+      <outputTouziParamSet2>false</outputTouziParamSet2>
+      <outputTouziParamSet3>false</outputTouziParamSet3>
+      <outputHuynenParamSet0>true</outputHuynenParamSet0>
+      <outputHuynenParamSet1>false</outputHuynenParamSet1>
+    </parameters>
+  </node>
+  <node id="Polarimetric-Decomposition(2)">
+    <operator>Polarimetric-Decomposition</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <decomposition>H-A-Alpha Quad Pol Decomposition</decomposition>
+      <windowSize>5</windowSize>
+      <outputHAAlpha>true</outputHAAlpha>
+      <outputBetaDeltaGammaLambda>false</outputBetaDeltaGammaLambda>
+      <outputAlpha123>false</outputAlpha123>
+      <outputLambda123>false</outputLambda123>
+      <outputTouziParamSet0>true</outputTouziParamSet0>
+      <outputTouziParamSet1>false</outputTouziParamSet1>
+      <outputTouziParamSet2>false</outputTouziParamSet2>
+      <outputTouziParamSet3>false</outputTouziParamSet3>
+      <outputHuynenParamSet0>true</outputHuynenParamSet0>
+      <outputHuynenParamSet1>false</outputHuynenParamSet1>
+    </parameters>
+  </node>
+  <node id="Ellipsoid-Correction-RD(2)">
+    <operator>Ellipsoid-Correction-RD</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Decomposition"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <externalDEMApplyEGM>true</externalDEMApplyEGM>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>7.41</pixelSpacingInMeter>
+      <pixelSpacingInDegree>1.931377860856971E-4</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <alignToStandardGrid>false</alignToStandardGrid>
+      <standardGridOriginX>0.0</standardGridOriginX>
+      <standardGridOriginY>0.0</standardGridOriginY>
+      <nodataValueAtSea>true</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLatLon>false</saveLatLon>
+      <saveIncidenceAngleFromEllipsoid>false</saveIncidenceAngleFromEllipsoid>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <saveLayoverShadowMask>false</saveLayoverShadowMask>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="Ellipsoid-Correction-RD(3)">
+    <operator>Ellipsoid-Correction-RD</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Decomposition(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <externalDEMApplyEGM>true</externalDEMApplyEGM>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>7.41</pixelSpacingInMeter>
+      <pixelSpacingInDegree>1.931377860856971E-4</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <alignToStandardGrid>false</alignToStandardGrid>
+      <standardGridOriginX>0.0</standardGridOriginX>
+      <standardGridOriginY>0.0</standardGridOriginY>
+      <nodataValueAtSea>true</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLatLon>false</saveLatLon>
+      <saveIncidenceAngleFromEllipsoid>true</saveIncidenceAngleFromEllipsoid>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <saveLayoverShadowMask>false</saveLayoverShadowMask>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="CreateStack">
+    <operator>CreateStack</operator>
+    <sources>
+      <sourceProduct refid="Ellipsoid-Correction-RD(3)"/>
+      <sourceProduct.1 refid="Ellipsoid-Correction-RD(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <masterBands/>
+      <sourceBands/>
+      <resamplingType>NONE</resamplingType>
+      <extent>Master</extent>
+      <initialOffsetMethod>Product Geolocation</initialOffsetMethod>
+    </parameters>
+  </node>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>/home/nmorandeira/Documentos/SAOCOM-prepro-prueba/EOL1ASARSAO1B4295651/S1B_OPER_SAR_EOSSP__CORE_L1A_OLF_20220421T191012.xemt</file>
+      <formatName>SAOCOM</formatName>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>Intensity_HH,Intensity_HV,Intensity_VH,Intensity_VV</sourceBands>
+      <region>0,0,0,0</region>
+      <referenceBand/>
+      <geoRegion>POLYGON ((-60.94076919555664 -32.69404602050781, -60.3370361328125 -32.69404602050781, -60.3370361328125 -31.6654109954834, -60.94076919555664 -31.6654109954834, -60.94076919555664 -32.69404602050781, -60.94076919555664 -32.69404602050781))</geoRegion>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGrids/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="CreateStack"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>/home/nmorandeira/Documentos/SAOCOM-prepro-prueba/Mati3B_Decomp_Subset_S1B_OPER_SAR_EOSSP__CORE_L1A_OLF_20220421T191012_HA_EC_Stack.tif</file>
+      <formatName>GeoTIFF</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Polarimetric-Decomposition">
+      <displayPosition x="329.0" y="58.0"/>
+    </node>
+    <node id="Polarimetric-Decomposition(2)">
+      <displayPosition x="324.0" y="137.0"/>
+    </node>
+    <node id="Ellipsoid-Correction-RD(2)">
+      <displayPosition x="626.0" y="60.0"/>
+    </node>
+    <node id="Ellipsoid-Correction-RD(3)">
+      <displayPosition x="598.0" y="129.0"/>
+    </node>
+    <node id="CreateStack">
+      <displayPosition x="878.0" y="76.0"/>
+    </node>
+    <node id="Read">
+      <displayPosition x="26.0" y="108.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="176.0" y="101.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="1059.0" y="75.0"/>
+    </node>
+  </applicationData>
+</graph>
