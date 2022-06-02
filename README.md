@@ -26,16 +26,15 @@ Alpha.
 ### Full Polarimétricas - Level SLC - Modos StripMap y TopSAR Narrow
 Dado el peso de las escenas SAOCOM, generamos dos grafos: 
 
-- **[Grafo 1 - Extracción de C3 con filtro polarimétrico](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_ALOS-PALSAR1_SLC_C3_LeeSigma7x7_Decomp.xml)**
+- **[Grafo 1 - Extracción de C3 con filtro polarimétrico](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_StripMap_SLC_C3_LeeSigma7x7.xml)**
 - **Input:** escena SAOCOM StripMap o TopSAR Narrow, Level SLC
 - **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Ellipsoid Correction, Escritura a disco.
 - **Output:** GeoTiff con C11 (HH),  C13_real, C13_imag, C22 (2HV), C33 (VV), incidence_angle.
 
-- **[Grafo 2 - Descomposiciones polarimétricas en ventana de 5x5, sin filtro previo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_ALOS-PALSAR1_SLC_C3_LeeSigma7x7_Decomp.xml)**
+- **[Grafo 2 - Descomposiciones polarimétricas en ventana de 5x5, sin filtro previo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_StripMap_SLC_Decomp.xml)**
 - **Input:** escena SAOCOM StripMap o TopSAR Narrow, Level SLC
 - **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Descomposición de Cloude-Pottier (H/A/Alpha), Descomposición de Freeman Durden, Ellipsoid Correction, Subset espacial, Stack de todas las bandas, Escritura a disco.
-- **Output:** GeoTiff con C11 (HH),  C13_real, C13_imag, C22 (2HV), C33 (VV), incidence_angle, Freeman_dbl, Freeman_vol, Freeman_surf, Entropy, Anisotropy,
-Alpha.
+- **Output:** GeoTiff con Freeman_dbl, Freeman_vol, Freeman_surf, Entropy, Anisotropy, Alpha, incidence_angle.
 
  
 
