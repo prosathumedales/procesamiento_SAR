@@ -171,7 +171,7 @@
       <sourceProduct refid="CreateStack"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>/home/nmorandeira/Documentos/SAOCOM-prepro-prueba/target_decomp.tif</file>
+      <file>/home/nmorandeira/Documentos/SAOCOM-prepro-prueba/target.tif</file>
       <formatName>GeoTIFF</formatName>
     </parameters>
   </node>
