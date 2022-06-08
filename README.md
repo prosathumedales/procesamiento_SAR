@@ -2,6 +2,8 @@
 
 Grafos para el procesamiento de escenas satelitales SAR con SNAP, versión 8.
 
+**Autores/as:** Natalia Morandeira, Matías Barber, Mercedes Salvia.
+
 
 ## Sentinel-1
 ### Dual-Pol IW - Level GRD
@@ -31,11 +33,12 @@ Dado el peso de las escenas SAOCOM, generamos dos grafos:
 - **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Ellipsoid Correction, Escritura a disco.
 - **Output:** GeoTiff con C11 (HH),  C13_real, C13_imag, C22 (2HV), C33 (VV), incidence_angle.
 
-- **[Grafo 2 - Descomposiciones polarimétricas en ventana de 5x5, sin filtro previo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_StripMap_SLC_Decomp.xml)**
+- **[Grafo 2 - Descomposiciones polarimétricas en ventana de 5x5, sin filtro previo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_SLC_Decomp_BASH.xml)**
 - **Input:** escena SAOCOM StripMap o TopSAR Narrow, Level SLC
 - **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Descomposición de Cloude-Pottier (H/A/Alpha), Descomposición de Freeman Durden, Ellipsoid Correction, Subset espacial, Stack de todas las bandas, Escritura a disco.
 - **Output:** GeoTiff con Freeman_dbl, Freeman_vol, Freeman_surf, Entropy, Anisotropy, Alpha, incidence_angle.
 
+Los grafos están preparados para correr por línea de comandos en bash con _gpt_. El parámetro para los archivos input es _NombreArchivo_ y el parámetro para los archivos de salida es _NombreTarget_.
  
 
 ## Licencia
