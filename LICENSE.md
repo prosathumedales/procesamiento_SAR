@@ -7,9 +7,7 @@ Este trabajo se publica bajo la licencia _Creative Commons Atribución/Reconocim
 El presente repositorio es un producto del proyecto _"Desarrollo de un sistema de monitoreo y manejo integral de humedales a partir de información satelital"_, financiado por la Comisión Nacional de Actividades Espaciales (CONAE) en el marco del llamado PROSAT-II. 
 La información de _SAOCOM_ fue generada a partir de productos SAOCOM® Originales – ©CONAE – (2022), adquiridos en el marco del proyecto.
 
-**Cómo citar**. 
-
-El proyecto está en desarrollo, consultar cómo citar. Contacto: Natalia Morandeira (nmorandeira@unsam.edu.ar, [@nmorandeira](https://github.com/nmorandeira))
+**Cómo citar**. El proyecto está en desarrollo, consultar cómo citar. Contacto: Natalia Morandeira (nmorandeira@unsam.edu.ar, [@nmorandeira](https://github.com/nmorandeira))
 
 ### Autores/as de este repositorio
 Natalia Morandeira, Matías Barber, Mercedes Salvia.
