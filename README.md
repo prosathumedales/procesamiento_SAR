@@ -42,6 +42,5 @@ Los grafos están preparados para correr por línea de comandos en bash con _gpt
  
 
 ## Licencia
-[CC BY SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es)
-
+[Ver detalles aquí](https://github.com/prosathumedales/procesamiento_SAR/blob/main/LICENSE.md).
 El proyecto está en desarrollo, consultar cómo citar. Contacto: Natalia Morandeira (nmorandeira@unsam.edu.ar, [@nmorandeira](https://github.com/nmorandeira))
