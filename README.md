@@ -26,7 +26,7 @@ Alpha.
 ### Full Polarimétricas - Level SLC - Modos StripMap y TopSAR Narrow
 Dado el peso de las escenas SAOCOM, generamos dos grafos: 
 
-- **[Grafo 1 - Extracción de C3 con filtro polarimétrico](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_StripMap_SLC_C3_LeeSigma7x7.xml)**
+- **[Grafo 1 - Extracción de C3 con filtro polarimétrico](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_SLC_C3_LeeSigma7x7_BASH.xml)**
 - **Input:** escena SAOCOM StripMap o TopSAR Narrow, Level SLC
 - **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Ellipsoid Correction, Escritura a disco.
 - **Output:** GeoTiff con C11 (HH),  C13_real, C13_imag, C22 (2HV), C33 (VV), incidence_angle.
