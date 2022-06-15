@@ -13,7 +13,9 @@ Grafos para el procesamiento de escenas satelitales SAR con SNAP, versión 8.
 
 ## ALOS/PALSAR-1
 ### Fine Beam Single ó Fine Beam Dual - Level GRD
-- **[Grafo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_ALOS-PALSAR1_GRD_mosaic_LeeSigma7x7.xml)**
+_Estos grafos están preparados para correr en bash con argumentos NombreArchivo y NombreTarget para el input y output._
+- **[Grafo para FBS](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_ALOS-PALSAR1_FBS_GRD_mosaic_LeeSigma7x7_BASH.xml)**
+- **[Grafo para FBD](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_ALOS-PALSAR1_FBD_GRD_mosaic_LeeSigma7x7_BASH.xml)**
 - **Procesos:** Lectura, Calibración radiométrica, Filtro Lee Speckle, Georreferenciación a través de SAR Moisaic, Subset espacial, Escritura a disco.
 - **Output:** GeoTiff con  incident_angle, HH (Single Pol) ó incident_angle, HV, HH (Dual Pol)
 
@@ -26,6 +28,8 @@ Alpha.
 
 ## SAOCOM
 ### Full Polarimétricas - Level SLC - Modos StripMap y TopSAR Narrow
+_Estos grafos están preparados para correr en bash con argumentos NombreArchivo y NombreTarget para el input y output._
+
 Dado el peso de las escenas SAOCOM, generamos dos grafos: 
 
 - **[Grafo 1 - Extracción de C3 con filtro polarimétrico](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_SLC_C3_LeeSigma7x7_BASH.xml)**
