@@ -1,0 +1,197 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters>
+      <file>${NombreArchivo}</file>
+    </parameters>
+  </node>
+  <node id="Calibration">
+    <operator>Calibration</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters>
+      <sourceBands>Amplitude_HH,Intensity_HH</sourceBands>
+      <auxFile>Product Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <outputImageInComplex>false</outputImageInComplex>
+      <outputImageScaleInDb>false</outputImageScaleInDb>
+      <createGammaBand>false</createGammaBand>
+      <createBetaBand>false</createBetaBand>
+      <selectedPolarisations>VH,VV</selectedPolarisations>
+      <outputSigmaBand>true</outputSigmaBand>
+      <outputGammaBand>false</outputGammaBand>
+      <outputBetaBand>false</outputBetaBand>
+    </parameters>
+  </node>
+  <node id="Speckle-Filter">
+    <operator>Speckle-Filter</operator>
+    <sources>
+      <sourceProduct refid="Calibration"/>
+    </sources>
+    <parameters>
+      <sourceBands/>
+      <filter>Lee Sigma</filter>
+      <filterSizeX>5</filterSizeX>
+      <filterSizeY>5</filterSizeY>
+      <dampingFactor>2</dampingFactor>
+      <estimateENL>true</estimateENL>
+      <enl>4.0</enl>
+      <numLooksStr>4</numLooksStr>
+      <windowSize>7x7</windowSize>
+      <targetWindowSizeStr>3x3</targetWindowSizeStr>
+      <sigmaStr>0.9</sigmaStr>
+      <anSize>50</anSize>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="SAR-Mosaic"/>
+    </sources>
+    <parameters>
+      <sourceBands/>
+      <region>0,0,0,0</region>
+      <referenceBand/>
+      <geoRegion>POLYGON ((-60.940799713134766 -32.694000244140625, -60.33700180053711 -32.694000244140625, -60.33700180053711 -31.6653995513916, -60.940799713134766 -31.6653995513916, -60.940799713134766 -32.694000244140625, -60.940799713134766 -32.694000244140625))</geoRegion>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGrids/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="SAR-Mosaic">
+    <operator>SAR-Mosaic</operator>
+    <sources>
+      <sourceProduct refid="Speckle-Filter"/>
+    </sources>
+    <parameters>
+      <sourceBands/>
+      <resamplingMethod>NEAREST_NEIGHBOUR</resamplingMethod>
+      <average>false</average>
+      <normalizeByMean>false</normalizeByMean>
+      <gradientDomainMosaic>false</gradientDomainMosaic>
+      <pixelSize>12.5</pixelSize>
+      <sceneWidth>7955</sceneWidth>
+      <sceneHeight>6243</sceneHeight>
+      <feather>0</feather>
+      <maxIterations>5000</maxIterations>
+      <convergenceThreshold>1.0E-4</convergenceThreshold>
+    </parameters>
+  </node>
+  <node id="BandMaths">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters>
+      <targetBands>
+        <targetBand>
+          <name>incidence_angle</name>
+          <type>float32</type>
+          <expression>incident_angle</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="SAR-Mosaic(2)">
+    <operator>SAR-Mosaic</operator>
+    <sources>
+      <sourceProduct refid="BandMaths"/>
+    </sources>
+    <parameters>
+      <sourceBands/>
+      <resamplingMethod>NEAREST_NEIGHBOUR</resamplingMethod>
+      <average>false</average>
+      <normalizeByMean>false</normalizeByMean>
+      <gradientDomainMosaic>false</gradientDomainMosaic>
+      <pixelSize>12.5</pixelSize>
+      <sceneWidth>7955</sceneWidth>
+      <sceneHeight>6243</sceneHeight>
+      <feather>0</feather>
+      <maxIterations>5000</maxIterations>
+      <convergenceThreshold>1.0E-4</convergenceThreshold>
+    </parameters>
+  </node>
+  <node id="Subset(2)">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="SAR-Mosaic(2)"/>
+    </sources>
+    <parameters>
+      <sourceBands/>
+      <region>0,0,0,0</region>
+      <referenceBand/>
+      <geoRegion>POLYGON ((-60.940799713134766 -32.694000244140625, -60.33700180053711 -32.694000244140625, -60.33700180053711 -31.6653995513916, -60.940799713134766 -31.6653995513916, -60.940799713134766 -32.694000244140625, -60.940799713134766 -32.694000244140625))</geoRegion>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGrids/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="CreateStack">
+    <operator>CreateStack</operator>
+    <sources>
+      <sourceProduct refid="Subset(2)"/>
+      <sourceProduct.1 refid="Subset"/>
+    </sources>
+    <parameters>
+      <masterBands/>
+      <sourceBands/>
+      <resamplingType>NONE</resamplingType>
+      <extent>Master</extent>
+      <initialOffsetMethod>Product Geolocation</initialOffsetMethod>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="CreateStack"/>
+    </sources>
+    <parameters>
+      <file>${NombreTarget}</file>
+      <formatName>GeoTIFF</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="42.0" y="109.0"/>
+    </node>
+    <node id="Calibration">
+      <displayPosition x="161.0" y="107.0"/>
+    </node>
+    <node id="Speckle-Filter">
+      <displayPosition x="294.0" y="106.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="724.0" y="93.0"/>
+    </node>
+    <node id="SAR-Mosaic">
+      <displayPosition x="535.0" y="96.0"/>
+    </node>
+    <node id="BandMaths">
+      <displayPosition x="177.0" y="209.0"/>
+    </node>
+    <node id="SAR-Mosaic(2)">
+      <displayPosition x="525.0" y="219.0"/>
+    </node>
+    <node id="Subset(2)">
+      <displayPosition x="712.0" y="218.0"/>
+    </node>
+    <node id="CreateStack">
+      <displayPosition x="901.0" y="164.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="1092.0" y="149.0"/>
+    </node>
+  </applicationData>
+</graph>
