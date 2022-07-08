@@ -39,7 +39,7 @@ Dado el peso de las escenas SAOCOM, generamos dos grafos:
 
 - **[Grafo 2 - Descomposiciones polarimétricas en ventana de 5x5, sin filtro previo](https://github.com/prosathumedales/procesamiento_SAR/blob/main/ProcGrafo_SAOCOM_SLC_Decomp_BASH.xml)**
 - **Input:** escena SAOCOM StripMap o TopSAR Narrow, Level SLC
-- **Procesos:** Lectura, Subset espacial, Extracción de matriz C3 con Filtro Lee Speckle polarimétrico, Descomposición de Cloude-Pottier (H/A/Alpha), Descomposición de Freeman Durden, Ellipsoid Correction, Subset espacial, Stack de todas las bandas, Escritura a disco.
+- **Procesos:** Lectura, Subset espacial, Descomposición de Cloude-Pottier (H/A/Alpha), Descomposición de Freeman Durden, Ellipsoid Correction, Subset espacial, Stack de todas las bandas, Escritura a disco.
 - **Output:** GeoTiff con Freeman_dbl, Freeman_vol, Freeman_surf, Entropy, Anisotropy, Alpha, incidence_angle.
 
 Los grafos están preparados para correr por línea de comandos en bash con _gpt_. El parámetro para los archivos input es _NombreArchivo_ y el parámetro para los archivos de salida es _NombreTarget_.
